@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2024-10-07
+  start_time: 2024-10-07 19:35:20
+  end_time: 2024-10-07 19:35:20
+  available: false
+  therapist: one
+
+two:
+  date: 2024-10-07
+  start_time: 2024-10-07 19:35:20
+  end_time: 2024-10-07 19:35:20
+  available: false
+  therapist: two
