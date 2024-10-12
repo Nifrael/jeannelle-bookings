@@ -1,9 +1,2 @@
 <h1>Ici pour créer un nouveau thérapeute</h1>
-<%= simple_form_for(@therapist) do |f| %>
-  <%= f.input :first_name, label: "Prénom" %>
-  <%= f.input :last_name, label: "Nom" %>
-  <%= f.input :role, label: "Rôle", collection: ["user", "admin"] %>
-  <%= f.input :email, label: "Email" %>
-  <%= f.input :password, label: "Mot de passe" %>
-  <%= f.button :submit, 'Créer' %>
-<% end %>
+<%= render 'form', therapist: @therapist %>

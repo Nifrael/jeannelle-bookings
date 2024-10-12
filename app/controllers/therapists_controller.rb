@@ -26,14 +26,19 @@ class TherapistsController < ApplicationController
   end
 
   def update
-    @therapist = Therapist.update(therapist_params)
+    @therapist.update(therapist_params)
+    authorize @therapist
     redirect_to therapist_path(@therapist)
   end
 
   def edit
+    authorize @therapist
   end
 
   def destroy
+    @therapist.destroy
+    authorize @therapist
+    redirect_to therapists_path
   end
 
   private
