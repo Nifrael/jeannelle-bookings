@@ -7,3 +7,13 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+admin = Therapist.create(
+  first_name: "Karine",
+  last_name: "Maraval",
+  role: "admin",
+  email: "test@gmail.com",
+  password: "testtest",
+)
+
+puts "#{admin.first_name} est créé."
