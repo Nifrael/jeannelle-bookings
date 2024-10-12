@@ -2,4 +2,6 @@
 <% @therapists.each do |therapist| %>
   <%= therapist.first_name %>
 <% end %>
-<%= link_to 'Nouveau thérapeute', new_therapist_path %>
+<% if policy(current_therapist).new? %>
+  <%= link_to 'Nouveau thérapeute', new_therapist_path %>
+<% end %>

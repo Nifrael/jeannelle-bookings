@@ -9,7 +9,7 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <%= link_to 'Se déconnecter', destroy_therapist_session_path, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %>
+    <%= link_to 'Se déconnecter', destroy_therapist_session_path, data: { turbo_method: :delete, turbo_confirm: 'Êtes-vous sûr ?' } %>
     <%= yield %>
   </body>
 </html>
