@@ -1,6 +1,10 @@
 <h1>Les thérapeutes du centre :</h1>
 <% @therapists.each do |therapist| %>
-  <%= therapist.first_name %>
+  <%= link_to therapist_path(therapist) do %>
+    <div>
+      <%= therapist.first_name %>
+    </div>
+  <% end %>
 <% end %>
 <% if policy(current_therapist).new? %>
   <%= link_to 'Nouveau thérapeute', new_therapist_path %>

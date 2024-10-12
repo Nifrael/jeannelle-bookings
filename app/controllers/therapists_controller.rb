@@ -1,4 +1,5 @@
 class TherapistsController < ApplicationController
+  before_action :set_therapist, only: [:show, :edit, :update, :destroy]
 
   def index
     @therapists = Therapist.all
@@ -6,7 +7,6 @@ class TherapistsController < ApplicationController
   end
 
   def show
-    @therapist = Therapist.find(params[:id])
     authorize @therapist
   end
 
@@ -25,9 +25,24 @@ class TherapistsController < ApplicationController
     end
   end
 
+  def update
+    @therapist = Therapist.update(therapist_params)
+    redirect_to therapist_path(@therapist)
+  end
+
+  def edit
+  end
+
+  def destroy
+  end
+
   private
 
   def therapist_params
     params.require(:therapist).permit(:first_name, :last_name, :email, :role, :password)
+  end
+
+  def set_therapist
+    @therapist = Therapist.find(params[:id])
   end
 end
