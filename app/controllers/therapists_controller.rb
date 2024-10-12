@@ -19,4 +19,10 @@ class TherapistsController < ApplicationController
     @therapist = Therapist.new(therapist_params)
     authorize @therapist
   end
+
+  private
+
+  def therapist_params
+    params.require(:therapist).permit(:first_name, :last_name, :email, :role)
+  end
 end
