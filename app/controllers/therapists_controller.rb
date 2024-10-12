@@ -18,11 +18,16 @@ class TherapistsController < ApplicationController
   def create
     @therapist = Therapist.new(therapist_params)
     authorize @therapist
+    if @therapist.save
+      redirect_to @therapist
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
 
   def therapist_params
-    params.require(:therapist).permit(:first_name, :last_name, :email, :role)
+    params.require(:therapist).permit(:first_name, :last_name, :email, :role, :password)
   end
 end
