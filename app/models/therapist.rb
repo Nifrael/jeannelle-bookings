@@ -6,5 +6,7 @@ class Therapist < ApplicationRecord
 
   has_many :availabilities
 
+  enum role: { user: 1, admin: 0 }
+
   validates :first_name, :last_name, presence: true
 end
