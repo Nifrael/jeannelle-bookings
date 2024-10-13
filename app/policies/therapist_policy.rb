@@ -18,7 +18,7 @@ class TherapistPolicy < ApplicationPolicy
   end
 
   def update?
-    therapist.admin? || therapist == record
+    therapist.admin? && record.user? || therapist == record
   end
 
   def destroy?
