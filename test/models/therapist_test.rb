@@ -16,6 +16,11 @@ class TherapistTest < ActiveSupport::TestCase
     assert_not therapist.save, "Saved the therapist without email"
   end
 
+  test "should not save therapist without password" do
+    therapist = Therapist.new(first_name: "Lol", last_name: "empty")
+    assert_not therapist.save, "Saved the therapist without password"
+  end
+
     test "should assign default role when none is provided" do
     therapist = Therapist.new(first_name: "Lol", last_name: "empty")
     therapist.save
