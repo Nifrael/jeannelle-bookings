@@ -6,6 +6,6 @@
     </div>
   <% end %>
 <% end %>
-<% if policy(current_therapist).new? %>
+<% if therapist_signed_in? && policy(current_therapist).new? %>
   <%= link_to 'Nouveau thérapeute', new_therapist_path %>
 <% end %>

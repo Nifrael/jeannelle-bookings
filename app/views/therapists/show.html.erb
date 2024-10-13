@@ -2,6 +2,6 @@
   <%= @therapist.first_name %>
 </h1>
 <%= link_to 'Modifier', edit_therapist_path %>
-<% if @therapist.role == "user" %>
+<% if @therapist.role == "admin" %>
   <%= link_to 'Supprimer ce thérapeute', therapist_path(@therapist), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?"} %>
 <% end %>
