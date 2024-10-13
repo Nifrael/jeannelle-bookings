@@ -8,5 +8,5 @@ class Therapist < ApplicationRecord
 
   enum role: { user: 1, admin: 0 }
 
-  validates :first_name, :last_name, presence: true
+  validates :first_name, :last_name, :role, presence: true
 end
