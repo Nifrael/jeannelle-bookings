@@ -1,5 +1,7 @@
 class TherapistsController < ApplicationController
   before_action :set_therapist, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_therapist!
+  before_action :authorize_therapist, only: [:show, :new, :create, :edit, :update, :destroy]
 
   def index
     @therapists = Therapist.all
@@ -7,17 +9,14 @@ class TherapistsController < ApplicationController
   end
 
   def show
-    authorize @therapist
   end
 
   def new
     @therapist = Therapist.new
-    authorize @therapist
   end
 
   def create
     @therapist = Therapist.new(therapist_params)
-    authorize @therapist
     if @therapist.save
       redirect_to @therapist
     else
@@ -27,17 +26,14 @@ class TherapistsController < ApplicationController
 
   def update
     @therapist.update(therapist_params)
-    authorize @therapist
     redirect_to therapist_path(@therapist)
   end
 
   def edit
-    authorize @therapist
   end
 
   def destroy
     @therapist.destroy
-    authorize @therapist
     redirect_to therapists_path
   end
 
@@ -49,5 +45,9 @@ class TherapistsController < ApplicationController
 
   def set_therapist
     @therapist = Therapist.find(params[:id])
+  end
+
+  def authorize_therapist
+    authorize @therapist
   end
 end
