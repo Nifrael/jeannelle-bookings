@@ -6,7 +6,7 @@ class Therapist < ApplicationRecord
 
   has_many :availabilities
 
-  enum role: { user: 1, admin: 0 }
+  enum role: { therapist: 1, admin: 0 }
   before_validation :set_default_role
 
   validates :first_name, :last_name, :role, presence: true
@@ -15,6 +15,6 @@ class Therapist < ApplicationRecord
 
   def set_default_role
     puts "Setting default role to :user"
-    self.role ||= :user
+    self.role ||= :therapist
   end
 end

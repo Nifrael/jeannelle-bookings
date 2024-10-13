@@ -33,7 +33,7 @@ puts "#{admin2.first_name} est créé."
 user = Therapist.create(
   first_name: "Test",
   last_name: "Test",
-  role: "user",
+  role: "therapist",
   email: "test2@gmail.com",
   password: "testtest",
 )
