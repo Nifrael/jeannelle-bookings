@@ -8,6 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+Therapist.destroy_all
+
 admin = Therapist.create(
   first_name: "Karine",
   last_name: "Maraval",
@@ -17,3 +19,23 @@ admin = Therapist.create(
 )
 
 puts "#{admin.first_name} est créé."
+
+admin2 = Therapist.create(
+  first_name: "Julien",
+  last_name: "Marchand",
+  role: "admin",
+  email: "test3@gmail.com",
+  password: "testtest",
+)
+
+puts "#{admin2.first_name} est créé."
+
+user = Therapist.create(
+  first_name: "Test",
+  last_name: "Test",
+  role: "user",
+  email: "test2@gmail.com",
+  password: "testtest",
+)
+
+puts "#{user.first_name} est créé."
