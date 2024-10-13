@@ -5,25 +5,33 @@ class TherapistPolicy < ApplicationPolicy
   # code, beware of possible changes to the ancestors:
   # https://gist.github.com/Burgestrand/4b4bc22f31c8a95c425fc0e30d7ef1f5
 
+  def index?
+    true
+  end
+
+  def show?
+    true
+  end
+
   def create?
-    user.admin?
+    therapist.admin?
   end
 
   def update?
-    user.admin? || user == record
+    therapist.admin? && record.user? || therapist == record
   end
 
   def destroy?
-    user.admin?
+    therapist.admin? && record.user?
   end
 
   class Scope < ApplicationPolicy::Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      if user.admin?
+      if therapist.admin?
         scope.all
       else
-        scope.where(id: user.id)
+        scope.where(id: therapist.id)
       end
     end
   end
