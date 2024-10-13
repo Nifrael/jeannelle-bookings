@@ -3,13 +3,13 @@
 one:
   first_name: MyString
   last_name: MyString
-  email: MyString
-  password: MyString
+  email: mystring1@example.com
+  encrypted_password: $2a$12$e4oNMQ3GjpQhDzyMwRk5ZOH7OaHa44XjTOeXt9eK9KdJ.p7cHZ.Oq
   role: 1
 
 two:
   first_name: MyString
   last_name: MyString
-  email: MyString
-  password: MyString
-  role: 1
+  email: mystring2@example.com
+  encrypted_password: $2a$12$e4oNMQ3GjpQhDzyMwRk5ZOH7OaHa44XjTOeXt9eK9KdJ.p7cHZ.Oq
+  role: 2
