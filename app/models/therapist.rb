@@ -7,6 +7,13 @@ class Therapist < ApplicationRecord
   has_many :availabilities
 
   enum role: { user: 1, admin: 0 }
+  before_create :set_default_role
 
   validates :first_name, :last_name, :role, presence: true
+
+  private
+
+  def set_default_role
+    self.role ||= :user
+  end
 end

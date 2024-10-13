@@ -18,7 +18,6 @@ class TherapistsController < ApplicationController
 
   def create
     @therapist = Therapist.new(therapist_params)
-    @therapist.role = "user"
     authorize_therapist
     if @therapist.save
       redirect_to @therapist
