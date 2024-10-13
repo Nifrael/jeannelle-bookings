@@ -1,7 +1,7 @@
 class TherapistsController < ApplicationController
   before_action :set_therapist, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_therapist!
-  before_action :authorize_therapist, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :authorize_therapist, only: [:show, :edit, :update, :destroy]
 
   def index
     @therapists = Therapist.all
@@ -13,10 +13,13 @@ class TherapistsController < ApplicationController
 
   def new
     @therapist = Therapist.new
+    authorize_therapist
   end
 
   def create
     @therapist = Therapist.new(therapist_params)
+    @therapist.role = "user"
+    authorize_therapist
     if @therapist.save
       redirect_to @therapist
     else
@@ -40,7 +43,7 @@ class TherapistsController < ApplicationController
   private
 
   def therapist_params
-    params.require(:therapist).permit(:first_name, :last_name, :email, :role, :password)
+    params.require(:therapist).permit(:first_name, :last_name, :email, :password)
   end
 
   def set_therapist
