@@ -39,3 +39,13 @@ user = Therapist.create(
 )
 
 puts "#{user.first_name} est créé."
+
+user2 = Therapist.create(
+  first_name: "Test",
+  last_name: "Test",
+  role: "therapist",
+  email: "test4@gmail.com",
+  password: "testtest",
+)
+
+puts "#{user2.first_name} est créé."

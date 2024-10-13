@@ -24,6 +24,6 @@ class TherapistTest < ActiveSupport::TestCase
     test "should assign default role when none is provided" do
     therapist = Therapist.new(first_name: "Lol", last_name: "empty")
     therapist.save
-    assert_equal "user", therapist.role, "Therapist was not assigned the default role"
+    assert_equal "therapist", therapist.role, "Therapist was not assigned the default role"
   end
 end

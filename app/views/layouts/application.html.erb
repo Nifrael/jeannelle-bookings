@@ -12,6 +12,7 @@
     <% if !therapist_signed_in? %>
       <%= link_to "Se connecter", new_therapist_session_path %>
     <% else %>
+      <h1>Bienvenue, <%= current_therapist.first_name %></h1>
       <%= link_to 'Se déconnecter', destroy_therapist_session_path, data: { turbo_method: :delete, turbo_confirm: 'Êtes-vous sûr ?' } %>
     <% end %>
     <%= yield %>
