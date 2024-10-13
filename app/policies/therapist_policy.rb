@@ -14,24 +14,24 @@ class TherapistPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin?
+    therapist.admin?
   end
 
   def update?
-    user.admin? || user == record
+    therapist.admin? || therapist == record
   end
 
   def destroy?
-    user.admin?
+    therapist.admin? && record.user?
   end
 
   class Scope < ApplicationPolicy::Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      if user.admin?
+      if therapist.admin?
         scope.all
       else
-        scope.where(id: user.id)
+        scope.where(id: therapist.id)
       end
     end
   end
