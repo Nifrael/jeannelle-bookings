@@ -5,11 +5,11 @@ one:
   start_time: 2024-10-07 19:35:20
   end_time: 2024-10-07 19:35:20
   available: false
-  therapist: one
+  therapist: admin
 
 two:
   date: 2024-10-07
   start_time: 2024-10-07 19:35:20
   end_time: 2024-10-07 19:35:20
   available: false
-  therapist: two
+  therapist: therapist

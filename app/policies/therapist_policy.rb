@@ -18,21 +18,17 @@ class TherapistPolicy < ApplicationPolicy
   end
 
   def update?
-    therapist.admin? && record.user? || therapist == record
+    therapist.admin? && record.therapist? || therapist == record
   end
 
   def destroy?
-    therapist.admin? && record.user?
+    therapist.admin? && record.therapist?
   end
 
   class Scope < ApplicationPolicy::Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      if therapist.admin?
         scope.all
-      else
-        scope.where(id: therapist.id)
-      end
     end
   end
 end
