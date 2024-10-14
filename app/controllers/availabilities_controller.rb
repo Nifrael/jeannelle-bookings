@@ -5,6 +5,10 @@ class AvailabilitiesController < ApplicationController
     @availabilities = @therapist.availabilities.where(available: true).includes(:therapist)
   end
 
+  def new
+    @availability = @therapist.availabilities.build
+  end
+
   private
 
   def set_therapist
