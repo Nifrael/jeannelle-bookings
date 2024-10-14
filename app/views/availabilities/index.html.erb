@@ -1,0 +1,7 @@
+<h1>Hello</h1>
+<h2>Disponibilités : </h2>
+<% @availabilities.each do |availability| %>
+  <%= availability.date %>
+  <%= availability.start_time %>
+  <%= availability.end_time %>
+<% end %>
