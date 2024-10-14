@@ -14,7 +14,6 @@ class Therapist < ApplicationRecord
   private
 
   def set_default_role
-    puts "Setting default role to :user"
     self.role ||= :therapist
   end
 end
