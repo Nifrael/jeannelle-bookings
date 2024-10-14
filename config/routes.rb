@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#home"
 
-  resources :therapists
+  resources :therapists do
+    resources :availabilities, except: :show
+  end
 end
