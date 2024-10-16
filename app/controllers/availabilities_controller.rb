@@ -1,17 +1,22 @@
 class AvailabilitiesController < ApplicationController
   before_action :set_therapist
+  before_action :authenticate_therapist!
   before_action :set_availability, only: %i[edit update destroy]
+  before_action :authorize_availability, only: [:edit, :update, :destroy]
 
   def index
     @availabilities = @therapist.availabilities.where(available: true).includes(:therapist)
+    authorize @availabilities
   end
 
   def new
     @availability = @therapist.availabilities.build
+    authorize_availability
   end
 
   def create
     @availability = @therapist.availabilities.build(availabilities_params)
+    authorize_availability
     if @availability.save
       redirect_to therapist_availabilities_path(@therapist), notice: "Disponibilité créée avec succès."
     else
@@ -47,6 +52,10 @@ class AvailabilitiesController < ApplicationController
 
   def availabilities_params
     params.require(:availability).permit(:date, :start_time, :end_time)
+  end
+
+  def authorize_availability
+    authorize @availability
   end
 
 end
