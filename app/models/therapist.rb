@@ -4,7 +4,7 @@ class Therapist < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :availabilities
+  has_many :availabilities, dependent: :destroy
 
   enum role: { therapist: 1, admin: 0 }
   before_validation :set_default_role
@@ -14,7 +14,6 @@ class Therapist < ApplicationRecord
   private
 
   def set_default_role
-    puts "Setting default role to :user"
     self.role ||= :therapist
   end
 end

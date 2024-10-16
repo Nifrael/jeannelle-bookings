@@ -9,6 +9,7 @@
 #   end
 
 Therapist.destroy_all
+Availability.destroy_all
 
 admin = Therapist.create(
   first_name: "Karine",
@@ -49,3 +50,58 @@ user2 = Therapist.create(
 )
 
 puts "#{user2.first_name} est créé."
+
+
+rdv1 = Availability.create(
+  date: Date.today,
+  start_time: "10:00",
+  end_time: "12:00",
+  therapist: admin,
+)
+
+puts "Rendez-vous #{rdv1.date} créé."
+
+rdv2 = Availability.create(
+  date: Date.today,
+  start_time: "14:00",
+  end_time: "16:00",
+  therapist: admin,
+)
+
+puts "Rendez-vous créé."
+
+rdv3 = Availability.create(
+  date: Date.today,
+  start_time: "10:00",
+  end_time: "12:00",
+  therapist: user,
+)
+
+puts "Rendez-vous créé."
+
+rdv4 = Availability.create(
+  date: Date.today,
+  start_time: "10:00",
+  end_time: "12:00",
+  therapist: admin2,
+)
+
+puts "Rendez-vous créé."
+
+rdv5 = Availability.create(
+  date: Date.today,
+  start_time: "10:00",
+  end_time: "12:00",
+  therapist: user2,
+)
+
+puts "Rendez-vous créé."
+
+rdv6 = Availability.create(
+  date: Date.today,
+  start_time: "15:00",
+  end_time: "17:00",
+  therapist: user2,
+)
+
+puts "Rendez-vous créé."

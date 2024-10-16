@@ -1,0 +1,12 @@
+<h1>Hello</h1>
+<h2>Disponibilités : </h2>
+<% @availabilities.each do |availability| %>
+  <div>
+    <%= availability.date %>
+    <%= availability.start_time %>
+    <%= availability.end_time %>
+    <%= link_to 'Mofidier le créneau', edit_therapist_availability_path(@therapist, availability) %>
+    <%= link_to 'Supprimer ce créneau', therapist_availability_path(@therapist, availability), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?"} %>
+  </div>
+<% end %>
+<%= link_to 'Nouveau créneau', new_therapist_availability_path %>

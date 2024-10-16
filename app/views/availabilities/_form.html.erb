@@ -1,0 +1,14 @@
+<%= simple_form_for [@therapist, @availability] do |f| %>
+  <div>
+    <%= f.input :date, label: "Date du créneau", as: :date %>
+  </div>
+  <div>
+    <%= f.input :start_time, label: "Heure de début", as: :time %>
+  </div>
+  <div>
+    <%= f.input :end_time, label: "Heure de fin", as: :time %>
+  </div>
+  <div>
+    <%= f.submit "Créer le créneau" %>
+  </div>
+<% end %>
