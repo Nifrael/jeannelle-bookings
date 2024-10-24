@@ -13,6 +13,8 @@ class Availability < ApplicationRecord
   end
 
   def validate_time
+    return if start_time.blank? || end_time.blank?
+
     if self.start_time >= self.end_time
       errors.add(:end_time, "doit être postérieure à l'heure de début du créneau.")
     end
