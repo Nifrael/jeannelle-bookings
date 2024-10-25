@@ -1,6 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 admin:
+  id: 1
   first_name: MyString
   last_name: MyString
   email: mystring1@example.com
@@ -8,6 +9,7 @@ admin:
   role: 0
 
 admin2:
+  id: 2
   first_name: MyString
   last_name: MyString
   email: mystring4@example.com
@@ -15,6 +17,7 @@ admin2:
   role: 0
 
 therapist:
+  id: 3
   first_name: MyString
   last_name: MyString
   email: mystring2@example.com
@@ -22,6 +25,7 @@ therapist:
   role: 1
 
 therapist2:
+  id: 4
   first_name: MyString
   last_name: MyString
   email: mystring3@example.com
