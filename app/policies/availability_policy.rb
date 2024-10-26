@@ -10,16 +10,20 @@ class AvailabilityPolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    true
+  end
+
   def create?
-    therapist == availability.therapist
+    therapist.admin? || therapist == availability.therapist
   end
 
   def update?
-    therapist == availability.therapist
+    therapist.admin? || therapist == availability.therapist
   end
 
   def destroy?
-    therapist == availability.therapist
+    therapist.admin? || therapist == availability.therapist
   end
 
   class Scope < ApplicationPolicy::Scope

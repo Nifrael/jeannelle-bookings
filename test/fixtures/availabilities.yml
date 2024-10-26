@@ -5,39 +5,39 @@ one:
   start_time: 2024-10-07 19:35:20
   end_time: 2024-10-07 19:45:20
   available: true
-  therapist: admin
+  therapist_id: 1
 
 two:
   date: 2024-10-07
   start_time: 2024-10-07 19:45:20
   end_time: 2024-10-07 19:55:20
   available: true
-  therapist: therapist1
+  therapist_id: 3
 
-  one:
+three:
   date: 2024-10-07
   start_time: 2024-10-07 20:35:20
   end_time: 2024-10-07 21:35:20
   available: true
-  therapist: therapist2
+  therapist_id: 4
 
-two:
+four:
   date: 2024-10-07
   start_time: 2024-10-07 09:45:20
   end_time: 2024-10-07 10:55:20
   available: true
-  therapist: therapist1
+  therapist_id: 3
 
-  one:
+five:
   date: 2024-10-07
   start_time: 2024-10-07 22:35:20
   end_time: 2024-10-07 23:35:20
   available: true
-  therapist: admin
+  therapist_id: 2
 
-two:
+six:
   date: 2024-10-07
   start_time: 2024-10-07 08:45:20
   end_time: 2024-10-07 09:55:20
   available: true
-  therapist: therapist2
+  therapist_id: 4
