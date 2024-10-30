@@ -5,6 +5,8 @@ class Therapist < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :availabilities, dependent: :destroy
+  has_many :therapist_specialities
+  has_many :specialities, through: :therapist_specialities
 
   enum role: { therapist: 1, admin: 0 }
   before_validation :set_default_role

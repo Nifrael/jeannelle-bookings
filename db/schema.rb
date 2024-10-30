@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_07_195822) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_27_162703) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_07_195822) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["therapist_id"], name: "index_availabilities_on_therapist_id"
+  end
+
+  create_table "specialities", force: :cascade do |t|
+    t.string "name"
+    t.integer "default_max_attendance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "therapist_specialities", force: :cascade do |t|
+    t.bigint "therapist_id", null: false
+    t.bigint "speciality_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["speciality_id"], name: "index_therapist_specialities_on_speciality_id"
+    t.index ["therapist_id"], name: "index_therapist_specialities_on_therapist_id"
   end
 
   create_table "therapists", force: :cascade do |t|
@@ -41,4 +57,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_07_195822) do
   end
 
   add_foreign_key "availabilities", "therapists"
+  add_foreign_key "therapist_specialities", "specialities"
+  add_foreign_key "therapist_specialities", "therapists"
 end
