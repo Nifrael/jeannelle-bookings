@@ -9,6 +9,7 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
+    <%= render 'layouts/navbar' %>
     <% if !therapist_signed_in? %>
       <%= link_to "Se connecter", new_therapist_session_path %>
     <% else %>
