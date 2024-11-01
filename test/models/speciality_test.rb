@@ -5,4 +5,9 @@ class SpecialityTest < ActiveSupport::TestCase
     speciality = Speciality.new(default_max_attendance: 10)
     assert_not speciality.save, "Saved the speciality without a name"
   end
+
+    test "should not save speciality without attendance" do
+    speciality = Speciality.new(name: "Yoga")
+    assert_not speciality.save, "Saved the speciality without attendance"
+  end
 end
