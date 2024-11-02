@@ -15,5 +15,5 @@ Rails.application.routes.draw do
     resources :availabilities, except: :show
   end
 
-  resources :dashboards
+  resources :dashboards, only: :index
 end
