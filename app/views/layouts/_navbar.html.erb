@@ -1,7 +1,19 @@
 <header>
   <nav>
     <ul>
-      <%= image_tag 'Jeannelle.png' %>
+      <li>
+        <%= link_to 'Accueil', root_path %>
+      </li>
+      <li>
+        <%= image_tag 'Jeannelle.png' %>
+      </li>
+      <li>
+        <% if !therapist_signed_in? %>
+          <%= link_to "Espace Pro", new_therapist_session_path %>
+        <% else %>
+          <%= link_to 'Tableau de bord', dashboards_path %>
+        <% end %>
+      </li>
     </ul>
   </nav>
   <div class="gradient">
