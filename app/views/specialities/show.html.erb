@@ -1,0 +1,7 @@
+<h1><%= @speciality.name %></h1>
+<% @speciality.therapists.each do |therapist| %>
+  <%= link_to therapist_availabilities_path(therapist) do %>
+    <%= therapist.first_name %>
+    <%= therapist.last_name %>
+  <% end %>
+<% end %>
