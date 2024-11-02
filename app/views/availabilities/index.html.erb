@@ -5,12 +5,12 @@
     <%= availability.date %>
     <%= availability.start_time %>
     <%= availability.end_time %>
-    <% if policy(availability).update? %>
-      <%= link_to 'Mofidier le créneau', edit_therapist_availability_path(@therapist, availability) %>
-    <% end %>
-    <% if policy(availability).destroy? %>
-      <%= link_to 'Supprimer ce créneau', therapist_availability_path(@therapist, availability), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?"} %>
-    <% end %>
+    <%# if policy(availability).update? %>
+    <%# link_to 'Mofidier le créneau', edit_therapist_availability_path(@therapist, availability) %>
+    <%# end %>
+    <%# if policy(availability).destroy? %>
+    <%# link_to 'Supprimer ce créneau', therapist_availability_path(@therapist, availability), data: {turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?"} %>
+    <%# end %>
   </div>
 <% end %>
 <%# if therapist_signed_in? && policy(Availability).new? %>

@@ -1,6 +1,6 @@
 class AvailabilitiesController < ApplicationController
   before_action :set_therapist
-  before_action :authenticate_therapist!
+  before_action :authenticate_therapist!, except: :index
   before_action :set_availability, only: %i[edit update destroy]
   before_action :authorize_availability, only: [:edit, :update, :destroy]
 
