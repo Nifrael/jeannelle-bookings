@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   resources :therapists do
     resources :availabilities, except: :show
   end
+
+  resources :dashboards, only: :index
 end

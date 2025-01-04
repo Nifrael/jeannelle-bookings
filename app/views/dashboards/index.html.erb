@@ -1,0 +1,9 @@
+Coucou, <%= @therapist.first_name %>
+<h1>Mes disponibilités programmées :</h1>
+<ul>
+  <li>
+    <% @availabilities.each do |availability| %>
+      <%= "#{l(availability.start_time, format: :hour_only)} - #{l(availability.end_time, format: :hour_only)}" %>
+    <% end %>
+  </li>
+</ul>
