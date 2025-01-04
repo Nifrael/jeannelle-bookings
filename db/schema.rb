@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_04_202254) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_04_202625) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_04_202254) do
     t.datetime "updated_at", null: false
     t.integer "current_attendance"
     t.integer "max_attendance"
+    t.bigint "speciality_id"
+    t.index ["speciality_id"], name: "index_availabilities_on_speciality_id"
     t.index ["therapist_id"], name: "index_availabilities_on_therapist_id"
   end
 
@@ -58,6 +60,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_04_202254) do
     t.index ["reset_password_token"], name: "index_therapists_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "availabilities", "specialities"
   add_foreign_key "availabilities", "therapists"
   add_foreign_key "therapist_specialities", "specialities"
   add_foreign_key "therapist_specialities", "therapists"
