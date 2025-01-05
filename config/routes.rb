@@ -16,10 +16,10 @@ Rails.application.routes.draw do
   end
 
   namespace :therapist do
-    resources :dashboards, only: :index
+    resources :dashboard, only: :index
   end
 
   namespace :admin do
-    resources :dashboards, only: :index
+    resources :dashboard, only: :index
   end
 end
