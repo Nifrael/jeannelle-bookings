@@ -8,7 +8,7 @@ class Therapist < ApplicationRecord
   has_many :therapist_specialities
   has_many :specialities, through: :therapist_specialities
 
-  enum role: { therapist: 1, admin: 0 }
+  enum :role, admin: 0, therapist: 1
   before_validation :set_default_role
 
   validates :first_name, :last_name, :role, presence: true
