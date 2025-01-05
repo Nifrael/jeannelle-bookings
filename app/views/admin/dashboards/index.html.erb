@@ -1,0 +1,17 @@
+Coucou, <%= @therapist.first_name %>
+<h1>Mes disponibilités programmées :</h1>
+<ul>
+  <li>
+    <% @availabilities.each do |availability| %>
+      <%= "#{l(availability.start_time, format: :hour_only)} - #{l(availability.end_time, format: :hour_only)}" %>
+    <% end %>
+  </li>
+</ul>
+<h1>Les thérapeutes :</h1>
+<ul>
+  <% @therapists.each do |therapist| %>
+    <li>
+      <%= therapist.first_name %>
+    </li>
+  <% end %>
+</ul>

@@ -11,7 +11,11 @@
         <% if !therapist_signed_in? %>
           <%= link_to "Espace Pro", new_therapist_session_path %>
         <% else %>
-          <%= link_to 'Tableau de bord', dashboards_path %>
+          <% if current_therapist.admin? %>
+            <%= link_to 'Tableau de bord', admin_dashboards_path %>
+          <% else %>
+            <%= link_to 'Tableau de bord', therapist_dashboards_path %>
+          <% end %>
         <% end %>
       </li>
     </ul>

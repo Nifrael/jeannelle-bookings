@@ -9,11 +9,17 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#home"
 
-  resources :specialities, except: :index
+  resources :specialities
 
   resources :therapists do
-    resources :availabilities, except: :show
+    resources :availabilities, except: :show, shallow: true
   end
 
-  resources :dashboards, only: :index
+  namespace :therapist do
+    resources :dashboards, only: :index
+  end
+
+  namespace :admin do
+    resources :dashboards, only: :index
+  end
 end
