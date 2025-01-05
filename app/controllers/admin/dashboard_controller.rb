@@ -1,5 +1,5 @@
 module Admin
-  class DashboardsController < ApplicationController
+  class DashboardController < ApplicationController
     before_action :authenticate_therapist!
     before_action :authorize_admin!
 

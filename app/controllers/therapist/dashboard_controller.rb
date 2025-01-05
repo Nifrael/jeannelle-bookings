@@ -1,5 +1,5 @@
 module Therapist
-  class DashboardsController < ApplicationController
+  class DashboardController < ApplicationController
     before_action :authenticate_therapist!
 
     def index
