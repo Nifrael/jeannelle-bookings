@@ -14,7 +14,7 @@
           <% if current_therapist.admin? %>
             <%= link_to 'Tableau de bord', admin_dashboard_index_path %>
           <% else %>
-            <%= link_to 'Tableau de bord', therapist_dashboard_index_path %>
+            <%= link_to 'Tableau de bord', therapists_dashboard_dashboard_index_path %>
           <% end %>
           <%= link_to 'Déconnexion', destroy_therapist_session_path, data: { turbo_method: :delete } %>
         <% end %>

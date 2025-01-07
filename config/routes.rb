@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :availabilities, except: :show, shallow: true
   end
 
-  namespace :therapist do
+  namespace :therapists_dashboard do
     resources :dashboard, only: :index
   end
 

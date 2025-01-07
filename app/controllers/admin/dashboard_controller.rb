@@ -5,8 +5,10 @@ module Admin
 
     def index
       @therapist = current_therapist
-      @availabilities = current_therapist.availabilities
       @therapists = Therapist.all
+      @specialities = Speciality.all
+      @availabilities = current_therapist.availabilities
+      # @appointments = current_therapist.appointments
     end
 
     private

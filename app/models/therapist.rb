@@ -7,6 +7,7 @@ class Therapist < ApplicationRecord
   has_many :availabilities, dependent: :destroy
   has_many :therapist_specialities
   has_many :specialities, through: :therapist_specialities
+  has_many :appointments, through: :availabilities
 
   enum :role, admin: 0, therapist: 1
   before_validation :set_default_role
