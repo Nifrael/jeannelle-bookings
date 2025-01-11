@@ -20,6 +20,8 @@ module Admin
 
     private
 
+    def set_therapist
 
+    end
   end
 end
