@@ -23,11 +23,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :dashboard, only: :index do
-      resources :therapists, only: [:new, :create, :update, :destroy]
-      resources :specialities, only: [:new, :create, :update, :destroy]
-      resources :availabilities, only: [:create, :update, :destroy]
-      resources :appointments, only: [:create, :update, :destroy]
-    end
+    resources :dashboard, only: :index
+    resources :therapists, only: [:new, :create, :update, :destroy]
+    resources :specialities, only: [:new, :create, :update, :destroy]
+    resources :availabilities, only: [:create, :update, :destroy]
+    resources :appointments, only: [:create, :update, :destroy]
   end
 end
