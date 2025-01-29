@@ -17,14 +17,14 @@ Rails.application.routes.draw do
 
   namespace :therapists_dashboard do
     resources :dashboard, only: :index do
-      resources :availabilities, only: [:create, :update, :destroy]
+      resources :availabilities, only: [:create, :edit, :update, :destroy]
       resources :appointments, only: [:create, :update, :destroy]
     end
   end
 
   namespace :admin do
     resources :dashboard, only: :index
-    resources :therapists, only: [:new, :create, :update, :destroy]
+    resources :therapists, only: [:new, :create, :edit, :update, :destroy]
     resources :specialities, only: [:new, :create, :update, :destroy]
     resources :availabilities, only: [:create, :update, :destroy]
     resources :appointments, only: [:create, :update, :destroy]
