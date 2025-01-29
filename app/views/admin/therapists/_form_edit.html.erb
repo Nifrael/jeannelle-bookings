@@ -4,5 +4,9 @@
   <% if therapist.role != "admin" %>
     <%= f.input :role, collection: Therapist.roles.keys, label: "Rôle" %>
   <% end %>
+  <% if current_therapist == therapist %>
+    <%= f.input :email, label: "Email" %>
+    <%= f.input :password, label: "Mot de passe" %>
+  <% end %>
   <%= f.button :submit, 'Modifier' %>
 <% end %>
