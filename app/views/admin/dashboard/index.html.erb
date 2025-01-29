@@ -12,7 +12,12 @@ Coucou, <%= @therapist.first_name %>
   <% @therapists.each do |therapist| %>
     <li>
       <%= therapist.first_name %>
-      <%= link_to "Supprimer ce thérapeute", admin_therapist_path(therapist), data: { turbo_method: :delete } %>
+      <% if policy(therapist).update? %>
+        <%= link_to "Editer ce thérapeute", edit_admin_therapist_path(therapist) %>
+      <% end %>
+      <% if policy(therapist).destroy? %>
+        <%= link_to "Supprimer ce thérapeute", admin_therapist_path(therapist), data: { turbo_method: :delete } %>
+      <% end %>
     </li>
   <% end %>
 </ul>
