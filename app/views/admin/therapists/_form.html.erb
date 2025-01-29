@@ -1,4 +1,4 @@
-<%= simple_form_for(@therapist) do |f| %>
+<%= simple_form_for @therapist, url: admin_therapists_path, method: :post do |f| %>
   <%= f.input :first_name, label: "Prénom" %>
   <%= f.input :last_name, label: "Nom" %>
   <%= f.input :email, label: "Email" %>
