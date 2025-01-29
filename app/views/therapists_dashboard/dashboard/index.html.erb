@@ -7,3 +7,13 @@ Coucou, <%= @therapist.first_name %>
     <% end %>
   </li>
 </ul>
+<h1>Les thérapeutes du centre</h1>
+<ul>
+  <% @therapists.each do |therapist| %>
+    <% if current_therapist != therapist %>
+      <li>
+        <%= therapist.first_name %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
