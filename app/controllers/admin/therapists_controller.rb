@@ -5,12 +5,10 @@ module Admin
 
   def new
     @therapist = Therapist.new
-    authorize_therapist
   end
 
   def create
     @therapist = Therapist.new(therapist_params)
-    authorize_therapist
     if @therapist.save
       redirect_to @therapist
     else
@@ -38,7 +36,7 @@ module Admin
     private
 
   def therapist_params
-    params.require(:therapist).permit(:first_name, :last_name, :role)
+    params.require(:therapist).permit(:first_name, :last_name, :role, :email, :password, :password_confirmation)
   end
 
   def set_therapist
