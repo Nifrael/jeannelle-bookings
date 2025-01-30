@@ -4,6 +4,7 @@ module TherapistsDashboard
 
     def index
       @therapists = Therapist.all
+      @specialities = current_therapist.specialities
       @therapist = current_therapist
       @availabilities = current_therapist.availabilities
     end
