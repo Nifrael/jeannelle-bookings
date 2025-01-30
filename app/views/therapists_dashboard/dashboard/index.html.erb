@@ -17,3 +17,11 @@ Coucou, <%= @therapist.first_name %>
     <% end %>
   <% end %>
 </ul>
+<h1>Vos spécialités</h1>
+<ul>
+  <% @specialities.each do |speciality| %>
+    <li>
+      <%= speciality.name %>
+    <% end %>
+  </li>
+</ul>
