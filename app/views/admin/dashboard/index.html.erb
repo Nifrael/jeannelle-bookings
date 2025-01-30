@@ -22,3 +22,13 @@ Coucou, <%= @therapist.first_name %>
   <% end %>
   <%= link_to 'Créer un thérapeute', new_admin_therapist_path %>
 </ul>
+<h1>Les spécialités</h1>
+<ul>
+  <% @specialities.each do |speciality| %>
+    <li>
+      <%= speciality.name %>
+      <%= link_to 'Modifier la spécialité', edit_admin_speciality_path(speciality) %>
+    </li>
+  <% end %>
+  <%= link_to 'Créer une spécialité', new_admin_speciality_path %>
+</ul>
