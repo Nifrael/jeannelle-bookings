@@ -1,0 +1,6 @@
+<%= simple_form_for @speciality, url: @speciality.persisted? ? admin_speciality_path(@speciality) : admin_specialities_path, method: @speciality.persisted? ? :patch : :post do |f| %>
+  <%= f.input :name, label: "Nom de la thérapie" %>
+  <%= f.input :default_max_attendance, as: :select, collection: (1..15).to_a, label: "Nombre maximal de patient sur un créneau" %>
+  <%= f.input :therapist_ids, as: :check_boxes, collection: Therapist.all.map { |t| ["#{t.first_name} #{t.last_name}", t.id] }, label: "Thérapeutes exerçant cette thérapie" %>
+  <%= f.button :submit, @speciality.persisted? ? 'Modifier' : 'Créer la spécialité' %>
+<% end %>
