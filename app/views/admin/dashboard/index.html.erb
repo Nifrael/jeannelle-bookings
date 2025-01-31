@@ -1,11 +1,15 @@
 Coucou, <%= @therapist.first_name %>
 <h1>Mes disponibilités programmées :</h1>
 <ul>
-  <li>
-    <% @availabilities.each do |availability| %>
-      <%= "#{l(availability.start_time, format: :hour_only)} - #{l(availability.end_time, format: :hour_only)}" %>
+  <% @availabilities.each do |speciality, availabilities| %>
+    <%= speciality.name %>
+    <% availabilities.each do |availability| %>
+      <li>
+        <%= availability.date %>
+        <%= "#{l(availability.start_time, format: :hour_only)} - #{l(availability.end_time, format: :hour_only)}" %>
+      </li>
     <% end %>
-  </li>
+  <% end %>
 </ul>
 <h1>Les thérapeutes :</h1>
 <ul>
@@ -26,9 +30,20 @@ Coucou, <%= @therapist.first_name %>
 <ul>
   <% @specialities.each do |speciality| %>
     <li>
-      <%= speciality.name %>
+      <%= link_to speciality_path(speciality) do %>
+        <%= speciality.name %>
+      <% end %>
       <%= link_to 'Modifier la spécialité', edit_admin_speciality_path(speciality) %>
     </li>
   <% end %>
   <%= link_to 'Créer une spécialité', new_admin_speciality_path %>
+</ul>
+<h1>Vos spécialités :</h1>
+<ul>
+  <% @self_specialities.each do |self_speciality| %>
+    <li>
+      <%= self_speciality.name %>
+    </li>
+    <%= link_to 'Ajouter une disponibilité', new_admin_availability_path(speciality_id: self_speciality.id) %>
+  <% end %>
 </ul>
