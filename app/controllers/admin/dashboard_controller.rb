@@ -7,7 +7,8 @@ module Admin
       @therapist = current_therapist
       @therapists = Therapist.all
       @specialities = Speciality.all
-      @availabilities = current_therapist.availabilities
+      @self_specialities = current_therapist.specialities
+      @availabilities = current_therapist.availabilities.includes(:speciality).order("specialities.name").group_by(&:speciality)
       # @appointments = current_therapist.appointments
     end
 
