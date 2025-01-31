@@ -1,20 +1,18 @@
 module Admin
   class AvailabilitiesController < ApplicationController
-    before_action :set_therapist
-    before_action :authenticate_therapist!, except: :index
+    before_action :authorize_admin!
+    before_action :set_speciality, only: %i[new create edit update destroy]
     before_action :set_availability, only: %i[edit update destroy]
     before_action :authorize_availability, only: [:edit, :update, :destroy]
 
     def new
-      @availability = @therapist.availabilities.build
-      authorize_availability
+      @availability = current_therapist.availabilities.build(speciality_id: @speciality.id)
     end
 
     def create
-      @availability = @therapist.availabilities.build(availabilities_params)
-      authorize_availability
+      @availability = current_therapist.availabilities.build(availabilities_params)
       if @availability.save
-        redirect_to therapist_availabilities_path(@therapist), notice: "Disponibilité créée avec succès."
+        redirect_to admin_dashboard_index_path, notice: "Disponibilité créée avec succès."
       else
         render :new
       end
@@ -38,8 +36,14 @@ module Admin
 
     private
 
-    def set_therapist
-      @therapist = Therapist.find(params[:therapist_id])
+    def set_speciality
+      if params[:speciality_id].present?
+        @speciality = current_therapist.specialities.find_by(id: params[:speciality_id])
+        unless @speciality
+          redirect_to therapists_dashboard_path, alert: "Vous ne pouvez pas créer de disponibilité pour cette spécialité."
+        end
+      end
+      return @speciality
     end
 
     def set_availability
@@ -47,11 +51,11 @@ module Admin
     end
 
     def availabilities_params
-      params.require(:availability).permit(:date, :start_time, :end_time)
+      params.require(:availability).permit(:date, :start_time, :end_time, :speciality_id)
     end
 
-    def authorize_availability
-      authorize @availability
+    def authorize_admin!
+      redirect_to root_path, alert: "Accès réservé aux administrateurs." unless current_therapist.admin?
     end
 
   end
