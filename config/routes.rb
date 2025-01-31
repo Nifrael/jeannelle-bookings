@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :dashboard, only: :index
     resources :therapists, only: [:new, :create, :edit, :update, :destroy]
     resources :specialities, only: [:new, :create, :edit, :update, :destroy]
-    resources :availabilities, only: [:create, :update, :destroy]
+    resources :availabilities, only: [:new, :create, :update, :destroy]
     resources :appointments, only: [:create, :update, :destroy]
   end
 end
