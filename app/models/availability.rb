@@ -1,5 +1,6 @@
 class Availability < ApplicationRecord
   belongs_to :therapist
+  belongs_to :speciality
 
   validates :date, :start_time, :end_time, :available, presence: true
   validate :validate_time
