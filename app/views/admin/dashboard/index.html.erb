@@ -8,6 +8,7 @@ Coucou, <%= @therapist.first_name %>
         <%= availability.date %>
         <%= "#{l(availability.start_time, format: :hour_only)} - #{l(availability.end_time, format: :hour_only)}" %>
       </li>
+      <%= link_to 'Modifier la disponibilité ', edit_admin_availability_path(availability) %>
     <% end %>
   <% end %>
 </ul>
