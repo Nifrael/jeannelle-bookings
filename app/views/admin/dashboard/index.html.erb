@@ -2,14 +2,16 @@ Coucou, <%= @therapist.first_name %>
 <h1>Mes disponibilités programmées :</h1>
 <ul>
   <% @availabilities.each do |speciality, availabilities| %>
-    <%= speciality.name %>
-    <% availabilities.each do |availability| %>
-      <li>
-        <%= availability.date %>
-        <%= "#{l(availability.start_time, format: :hour_only)} - #{l(availability.end_time, format: :hour_only)}" %>
-      </li>
-      <%= link_to 'Modifier la disponibilité ', edit_admin_availability_path(availability) %>
-    <% end %>
+    <ul>
+      <%= speciality.name %>
+      <% availabilities.each do |availability| %>
+        <li>
+          <%= availability.date %>
+          <%= "#{l(availability.start_time, format: :hour_only)} - #{l(availability.end_time, format: :hour_only)}" %>
+        </li>
+        <%= link_to 'Modifier la disponibilité ', edit_admin_availability_path(availability) %>
+      <% end %>
+    </ul>
   <% end %>
 </ul>
 <h1>Les thérapeutes :</h1>
